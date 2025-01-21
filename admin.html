@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./styles/admin.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#create-product" class="nav-link">Create Product</a></li>
+                <li><a href="#manage-product" class="nav-link">Manage Product</a></li>
+                <li><a href="#manage-users" class="nav-link">Manage Users</a></li>
+                <li><a href="#logout" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="create-product" class="form-section">
+                <h2>Create Product</h2>
+                <form id="create-product-form" class="form">
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" name="product-name" required />
+                    <label for="product-price">Product Price</label>
+                    <input type="number" id="product-price" name="product-price" required />
+                    <label for="product-image">Product Image URL</label>
+                    <input type="url" id="product-image" name="product-image" required />
+                    <label for="product-description">Product Description</label>
+                    <textarea id="product-description" name="product-description" required></textarea>                    
+                    <button type="submit">Create Product</button>
+                </form>
+            </section>
+            <section id="manage-product" class="form-section">
+                <h2>Manage Products</h2>
+                <div id="product-list"></div>
+            </section>
+            <section id="manage-users" class="form-section">
+                <h2>Manage Users</h2>
+                <div id="user-list"></div>
+            </section>
+            <section id="logout" class="form-section">
+                <p>Are you sure you want to log out?</p>
+                <button id="logout-button">Logout</button>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 SalesEcommerce</p>
+    </footer>
+</body>
+
+<script src="./js/adminBackend.js"></script>
+</html>

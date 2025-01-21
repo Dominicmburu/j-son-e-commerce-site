@@ -1,0 +1,167 @@
+{
+  "admin": [
+    {
+      "email": "admin@admin.com",
+      "password": "admin123",
+      "id": "bb37"
+    }
+  ],
+  "items": [
+    {
+      "name": "Apple iPhone 14 Pro",
+      "price": 999,
+      "description": "The iPhone 14 Pro offers an all-new 48MP Main Camera, A16 Bionic chip, and ProMotion display for a smoother experience.",
+      "image": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-hero-220907_Full-Bleed-Image.jpg.large.jpg",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S23 Ultra",
+      "price": 1199,
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/africa_en/feature/164386874/africa-en-feature-galaxy-s23-s918-535254017?$FB_TYPE_A_JPG$",
+      "description": "The Samsung Galaxy S23 Ultra features a 200MP camera, Snapdragon 8 Gen 2 processor, and a 6.8-inch Dynamic AMOLED screen."
+    },
+    {
+      "id": "3",
+      "name": "Sony WH-1000XM5 Noise Cancelling Headphones",
+      "image": "https://images.squarespace-cdn.com/content/v1/55787f0ae4b02f0501debbeb/1653409665430-PF5HN4WGKJIU30WFBU64/a.png?format=1000w",
+      "price": 399,
+      "description": "These premium noise-cancelling headphones offer exceptional sound quality, comfortable fit, and up to 30 hours of battery life."
+    },
+    {
+      "id": "4",
+      "name": "Apple MacBook Air M2",
+      "price": 1199,
+      "image": "https://www.camerasafrica.com/wp-content/uploads/2023/05/Apple-13.6-inches-MacBook-Air-M2-Space-Gray-camerasafrica.jpg",
+      "description": "The MacBook Air M2 is powered by Apple's M2 chip, delivering incredible performance in a thin, lightweight design."
+    },
+    {
+      "id": "5",
+      "name": "Canon EOS R6 Mirrorless Camera",
+      "price": 2499,
+      "image": "https://www.shutterbug.com/images/20/Canon_EOS_R6_3.jpg",
+      "description": "The Canon EOS R6 offers a 20MP full-frame sensor, advanced autofocus, and 4K video recording for both professional and amateur photographers."
+    },
+    {
+      "id": "6",
+      "name": "Microsoft Surface Pro 9",
+      "price": 1099,
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/11/IMG_0575-1440x960.jpeg",
+      "description": "The Surface Pro 9 offers powerful performance with Windows 11, a detachable keyboard, and a stunning 13-inch PixelSense display."
+    },
+    {
+      "id": "7",
+      "name": "Fitbit Charge 5 Fitness Tracker",
+      "price": 149,
+      "image": "https://fs.npstatic.com/userfiles/7687254/image/Fitbit_Charge_5/NextPit_Fitbit_Charge_5_close_up-w810h462.jpg",
+      "description": "Track your health with the Fitbit Charge 5, featuring built-in GPS, heart rate monitoring, sleep tracking, and 7-day battery life."
+    },
+    {
+      "id": "8",
+      "name": "Nike Air Force 1 '07 Sneakers",
+      "price": 90,
+      "image": "https://i.pinimg.com/736x/aa/4c/c7/aa4cc789eccea7e21755912d4109b9d9.jpg",
+      "description": "A classic sneaker with a leather upper, Nike Air cushioning, and a timeless design that never goes out of style."
+    },
+    {
+      "id": "9",
+      "name": "Herman Miller Aeron Chair",
+      "price": 1395,
+      "image": "https://livingedge.com.au/dw/image/v2/BDDH_PRD/on/demandware.static/-/Sites-livingedge-master/default/dwcb2eb75d/HM_AeronRemastered_Stool_0022_CarbonDark_Front_1600x1600.jpg?sw=1220&sh=1220",
+      "description": "The Aeron chair by Herman Miller is a top-tier ergonomic chair designed for comfort, durability, and support during long work hours."
+    },
+    {
+      "id": "cf15",
+      "name": "Samsung Smart Monitor M8",
+      "price": 699,
+      "description": "A versatile smart monitor with a built-in camera, apps, and support for work and entertainment.",
+      "image": "https://www.digitaltrends.com/wp-content/uploads/2022/08/samsung-m8-smart-monitor-review-12.jpg?resize=1000%2C600&p=1"
+    }
+  ],
+  "users": [
+    {
+      "name": "Dominic",
+      "email": "dominicmburu034@gmail.com",
+      "id": "306e"
+    },
+    {
+      "id": "9b3a",
+      "name": "Shadow",
+      "email": "shadow123@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "carts": [
+    {
+      "id": "e1c0",
+      "userId": "306e",
+      "products": []
+    },
+    {
+      "id": "5f36",
+      "userId": "9b3a",
+      "products": []
+    }
+  ],
+  "orders": [
+    {
+      "id": "cf18",
+      "userId": "306e",
+      "products": [
+        {
+          "id": 2,
+          "name": "Samsung Galaxy S23 Ultra",
+          "price": 1199,
+          "image": "https://images.samsung.com/is/image/samsung/p6pim/africa_en/feature/164386874/africa-en-feature-galaxy-s23-s918-535254017?$FB_TYPE_A_JPG$",
+          "quantity": 5
+        },
+        {
+          "id": 1,
+          "name": "Apple iPhone 14 Pro",
+          "price": 999,
+          "image": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-hero-220907_Full-Bleed-Image.jpg.large.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 6994,
+      "date": "2025-01-21T12:36:12.070Z"
+    },
+    {
+      "id": "0260",
+      "userId": "306e",
+      "products": [
+        {
+          "id": 4,
+          "name": "Apple MacBook Air M2",
+          "price": 1199,
+          "image": "https://www.camerasafrica.com/wp-content/uploads/2023/05/Apple-13.6-inches-MacBook-Air-M2-Space-Gray-camerasafrica.jpg",
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 3597,
+      "date": "2025-01-21T13:46:00.279Z"
+    },
+    {
+      "id": "9de1",
+      "userId": "9b3a",
+      "products": [
+        {
+          "id": 3,
+          "name": "Sony WH-1000XM5 Noise Cancelling Headphones",
+          "price": 399,
+          "image": "https://images.squarespace-cdn.com/content/v1/55787f0ae4b02f0501debbeb/1653409665430-PF5HN4WGKJIU30WFBU64/a.png?format=1000w",
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "name": "Samsung Galaxy S23 Ultra",
+          "price": 1199,
+          "image": "https://images.samsung.com/is/image/samsung/p6pim/africa_en/feature/164386874/africa-en-feature-galaxy-s23-s918-535254017?$FB_TYPE_A_JPG$",
+          "quantity": 2
+        }
+      ],
+      "totalPrice": 3196,
+      "date": "2025-01-21T13:56:53.001Z"
+    }
+  ]
+}
