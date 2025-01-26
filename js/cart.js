@@ -1,13 +1,13 @@
 async function checkUserLoggedIn() {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
-      window.location.href = "login.html"; // Redirect to login page if the user is not logged in
+      window.location.href = "login.html"; 
     }
     return user;
   }
   
   async function getCart(userId) {
-    const response = await fetch(`http://localhost:3000/carts?userId=${userId}`);
+    const response = await fetch(`http://localhost:3500/carts?userId=${userId}`);
     if (!response.ok) {
       console.error("Failed to fetch cart");
       return null;
@@ -20,7 +20,7 @@ async function checkUserLoggedIn() {
     const existingCart = await getCart(cart.userId);
   
     if (!existingCart) {
-      const createResponse = await fetch("http://localhost:3000/carts", {
+      const createResponse = await fetch("http://localhost:3500/carts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -144,7 +144,7 @@ async function checkUserLoggedIn() {
     };
   
     // Send the order to the server
-    const response = await fetch("http://localhost:3000/orders", {
+    const response = await fetch("http://localhost:3500/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

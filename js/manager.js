@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000';
+const apiUrl = 'http://localhost:3500';
 
 async function listProducts() {
     const productList = document.getElementById("product-list");

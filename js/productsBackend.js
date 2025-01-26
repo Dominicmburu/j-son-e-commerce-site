@@ -8,7 +8,7 @@ function checkUserLoggedIn() {
 checkUserLoggedIn();
 
 async function getProducts() {
-  const response = await fetch("http://localhost:3000/items");
+  const response = await fetch("http://localhost:3500/items");
   if (!response.ok) {
     console.error("Failed to fetch products");
     return [];
@@ -73,7 +73,7 @@ async function addToCart(id, name, price, image) {
 }
 
 async function getCart(userId) {
-  const response = await fetch(`http://localhost:3000/carts?userId=${userId}`);
+  const response = await fetch(`http://localhost:3500/carts?userId=${userId}`);
   if (!response.ok) {
     console.error("Failed to fetch cart");
     return null;
@@ -86,7 +86,7 @@ async function updateCartOnServer(cart) {
   const existingCart = await getCart(cart.userId);
 
   if (!existingCart) {
-    const createResponse = await fetch("http://localhost:3000/carts", {
+    const createResponse = await fetch("http://localhost:3500/carts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

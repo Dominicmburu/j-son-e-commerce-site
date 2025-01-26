@@ -38,7 +38,7 @@ function loadCartItems() {
   
       localStorage.setItem('cart', JSON.stringify([]));
       alert("Thank you for your order!");
-      window.location.href = "index.html"; // Redirect back to home
+      window.location.href = "index.html"; 
     } else {
       alert("Your cart is empty!");
     }

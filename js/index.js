@@ -6,7 +6,7 @@ function toggleForms() {
 }
 
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://localhost:3500';
 
 let currentUser = null;
 

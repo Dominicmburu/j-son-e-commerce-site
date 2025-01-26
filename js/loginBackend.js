@@ -17,10 +17,10 @@ loginForm.addEventListener("submit", async (e) => {
     return;
   }
 
-  const usersResponse = await fetch("http://localhost:3000/users");
+  const usersResponse = await fetch("http://localhost:3500/users");
   const users = await usersResponse.json();
   
-  const adminResponse = await fetch("http://localhost:3000/admin");
+  const adminResponse = await fetch("http://localhost:3500/admin");
   const admins = await adminResponse.json();
 
   const user = users.find(
@@ -61,14 +61,14 @@ registerForm.addEventListener("submit", async (e) => {
 
   const newUser = { name, email, password };
 
-  const response = await fetch("http://localhost:3000/users");
+  const response = await fetch("http://localhost:3500/users");
   const users = await response.json();
 
   const userExists = users.some((user) => user.email === email);
   if (userExists) {
     alert("User already exists!");
   } else {
-    await fetch("http://localhost:3000/users", {
+    await fetch("http://localhost:3500/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
