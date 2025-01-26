@@ -98,6 +98,7 @@ async function listUsers() {
         userItem.innerHTML = `
             <p><strong>Name:</strong> ${user.name}</p>
             <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Role:</strong> ${user.role}</p>
             <button class="edit-user-btn" data-id="${user.id}">Edit</button>
             <button class="delete-user-btn" data-id="${user.id}">Delete</button>
         `;

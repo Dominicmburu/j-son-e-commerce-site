@@ -1,9 +1,10 @@
 {
   "manager": [
     {
-      "email": "manager@gmail.com",
-      "password": "admin123",
-      "id": "bb37"
+      "id": "0da8",
+      "name": "kk",
+      "email": "going@gmail.com",
+      "password": "going123"
     }
   ],
   "admin": [
@@ -87,33 +88,55 @@
   ],
   "users": [
     {
-      "name": "Dominic",
-      "email": "dominicmburu034@gmail.com",
-      "id": "306e"
-    },
-    {
       "id": "9b3a",
       "name": "Shadow",
       "email": "shadow123@gmail.com",
+      "role": "user",
       "password": "123456"
+    },
+    {
+      "id": "df66",
+      "name": "Kelvin Koech",
+      "email": "koechcoding@gmail.com",
+      "role": "user",
+      "password": "12345678"
+    },
+    {
+      "id": "abd8",
+      "name": "victor",
+      "email": "victor@gmail.com",
+      "password": "12345678"
     }
   ],
   "carts": [
     {
       "id": "e1c0",
-      "userId": "306e",
+      "userId": null,
       "products": []
     },
     {
       "id": "5f36",
       "userId": "9b3a",
       "products": []
+    },
+    {
+      "id": "753f",
+      "userId": "bb37",
+      "products": [
+        {
+          "id": 2,
+          "name": "Samsung Galaxy S23 Ultra",
+          "price": 1199,
+          "image": "https://images.samsung.com/is/image/samsung/p6pim/africa_en/feature/164386874/africa-en-feature-galaxy-s23-s918-535254017?$FB_TYPE_A_JPG$",
+          "quantity": 1
+        }
+      ]
     }
   ],
   "orders": [
     {
       "id": "cf18",
-      "userId": "306e",
+      "userId": null,
       "products": [
         {
           "id": 2,
@@ -135,7 +158,7 @@
     },
     {
       "id": "0260",
-      "userId": "306e",
+      "userId": null,
       "products": [
         {
           "id": 4,

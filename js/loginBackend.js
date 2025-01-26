@@ -23,12 +23,19 @@ loginForm.addEventListener("submit", async (e) => {
   const adminResponse = await fetch("http://localhost:3500/admin");
   const admins = await adminResponse.json();
 
+  const managerResponse = await fetch("http://localhost:3500/manager");
+  const managers = await managerResponse.json();
+
   const user = users.find(
     (user) => user.email === email && user.password === password
   );
 
   const admin = admins.find(
     (admin) => admin.email === email && admin.password === password
+  );
+
+  const manager = managers.find(
+    (manager) => manager.email === email && manager.password === password
   );
 
   if (user) {
@@ -41,7 +48,14 @@ loginForm.addEventListener("submit", async (e) => {
     localStorage.setItem("user", JSON.stringify(admin));
 
     window.location.href = "admin.html";
-  } else {
+  }
+  else if (manager) {
+    alert("Manager login successful!");
+    localStorage.setItem("user", JSON.stringify(admin));
+
+    window.location.href = "manager.html";
+  } 
+  else {
     alert("Invalid credentials!");
   }
 });
