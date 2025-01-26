@@ -1,4 +1,11 @@
 {
+  "manager": [
+    {
+      "email": "manager@gmail.com",
+      "password": "admin123",
+      "id": "bb37"
+    }
+  ],
   "admin": [
     {
       "email": "admin@admin.com",
