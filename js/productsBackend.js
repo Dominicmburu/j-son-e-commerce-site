@@ -14,6 +14,8 @@ async function getProducts() {
     return [];
   }
   const products = await response.json();
+  console.log(products);
+  
   return products;
 }
 
@@ -57,11 +59,13 @@ async function addToCart(id, name, price, image) {
     cart = { userId: user.id, products: [] };
   }
 
+  const productId = String(id);
+
   const existingProductIndex = cart.products.findIndex(
-    (product) => product.id === id
+    (product) => product.id === productId
   );
   if (existingProductIndex === -1) {
-    cart.products.push({ id, name, price, image, quantity: 1 });
+    cart.products.push({ id: productId, name, price, image, quantity: 1 });
   } else {
     cart.products[existingProductIndex].quantity += 1;
   }

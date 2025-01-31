@@ -102,21 +102,14 @@
           "name": "Samsung Galaxy S23 Ultra",
           "price": 1199,
           "image": "https://images.samsung.com/is/image/samsung/p6pim/africa_en/feature/164386874/africa-en-feature-galaxy-s23-s918-535254017?$FB_TYPE_A_JPG$",
-          "quantity": 3
+          "quantity": 2
         },
         {
           "id": 1,
           "name": "Apple iPhone 14 Pro",
           "price": 999,
           "image": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-hero-220907_Full-Bleed-Image.jpg.large.jpg",
-          "quantity": 4
-        },
-        {
-          "id": "2",
-          "name": "Samsung Galaxy S23 Ultra",
-          "price": 1199,
-          "image": "https://images.samsung.com/is/image/samsung/p6pim/africa_en/feature/164386874/africa-en-feature-galaxy-s23-s918-535254017?$FB_TYPE_A_JPG$",
-          "quantity": 1
+          "quantity": 2
         }
       ]
     },
