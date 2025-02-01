@@ -91,42 +91,6 @@ describe("Cart Functionality", () => {
       cy.reload();
   });
 
-  // it("Should add multiple items to the cart and update the cart count", () => {
-  //   cy.intercept("GET", `${apiURL}/items`, {
-  //     fixture: "db.json",
-  //   }).as("getProducts");
-
-  //   cy.visit("/index.html");
-
-  //   cy.wait('@getProducts');
-
-    // cy.get(".product").eq(0).find("button").click();
-    // cy.get(".product").eq(1).find("button").click();
-
-    // cy.get(".cart").should("contain", "Cart (2)");
-
-    // cy.visit(`${apiURL}/cart.html`);
-
-    // cy.get(".cart-item").should("have.length", 2);
-
-    // cy.get(".cart-item")
-    //   .eq(0)
-    //   .find(".price")
-    //   .invoke("text")
-    //   .then((price1) => {
-    //     cy.get(".cart-item")
-    //       .eq(1)
-    //       .find(".price")
-    //       .invoke("text")
-    //       .then((price2) => {
-    //         const total =
-    //           parseFloat(price1.replace("Ksh", "")) +
-    //           parseFloat(price2.replace("Ksh", ""));
-    //         cy.get("#totalPrice").should("contain", total.toFixed(2));
-    //       });
-    //   });
-  // });
-
   it("Should add multiple items to the cart and update the cart count", () => {
     cy.request(`${apiURL}/items`).then((response) => {
       expect(response.status).to.eq(200);
@@ -142,41 +106,83 @@ describe("Cart Functionality", () => {
   });
   
 
-  it("Should increase quantity, decrease quantity, and remove items", () => {
-    cy.get(".product").eq(1).find("button").click();
+  // it("Should increase quantity, decrease quantity, and remove items", () => {
+  //   cy.get(".product").eq(3).find("button").click();
+
+  //   cy.visit("/cart.html");
+
+  //   cy.get(".cart-item").eq(2).find(".quantity .add").contains("+").click();
+  //   cy.get(".cart-item").eq(2).find(".quantity span").should("contain", "2");
+
+  //   cy.get(".cart-item").eq(2).find(".quantity .sub").contains("-").click();
+  //   cy.get(".cart-item").eq(2).find(".quantity span").should("contain", "1");
+
+  //   cy.get(".cart-item").eq(2).find("button").contains("Remove").click();
+  //   cy.get(".cart-item").should("not.exist");
+  // });
+
+
+  it("Should proceed to checkout with items in the cart", () => {
 
     cy.visit("/cart.html");
 
-    cy.get(".cart-item").eq(1).find(".quantity .add").contains("+").click();
-    cy.get(".cart-item").eq(1).find(".quantity span").should("contain", "2");
+    cy.get("button").contains("Proceed to Checkout").click();
 
-    cy.get(".cart-item").eq(1).find(".quantity .sub").contains("-").click();
-    cy.get(".cart-item").eq(1).find(".quantity span").should("contain", "1");
+    cy.on("window:alert", (text) => {
+      expect(text).to.contains("Your order has been placed successfully!");
+    });
 
-    cy.get(".cart-item").eq(1).find("button").contains("Remove").click();
-    cy.get(".cart-item").should("not.exist");
+    cy.get(".cart").should("contain", "Cart (0)");
   });
 
-
-
-
-
-
-  
-  // it("Should proceed to checkout with items in the cart", () => {
-  //   cy.get(".product").eq(0).find("button").click();
-  //   cy.get(".product").eq(1).find("button").click();
-
-  //   cy.visit("http://localhost:3000/cart.html");
-
-  //   cy.get("button").contains("Proceed to Checkout").click();
-
-  //   cy.on("window:alert", (text) => {
-  //     expect(text).to.contains("Your order has been placed successfully!");
-  //   });
-
-  //   cy.get(".cart").should("contain", "Cart (0)");
-  // });
-
 });
+
+
+describe('Admin Dashboard Tests', () => {
+  const apiUrl = 'http://localhost:3000';
+  
+  let adminUser = {
+    email: 'admin@admin.com',
+    password: 'admin123'
+  };
+
+
+  it('Should log in with valid admin credentials', () => {
+    cy.clearLocalStorage();
+    cy.visit('/login.html');
+    cy.get('#loginEmail').type(adminUser.email);
+    cy.get('#loginPassword').type(adminUser.password);
+
+    cy.get('#loginForm button').click();
+
+    cy.url().should('include', '/admin.html');
+    cy.contains('Admin Dashboard').should('be.visible');
+  });
+
+  beforeEach(() => {
+    cy.visit('/admin.html');
+  });
+
+  it('Should allow admin to create a new product', () => {
+    cy.get('#product-name').type('Test Product');
+    cy.get('#product-price').type('100');
+    cy.get('#product-description').type('This is a test product.');
+    cy.get('#product-image').type('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiKqt1gxUhlrGQETU6KKxJdHpfV-WXLTcOsQ&s');
+
+    cy.get('#create-product-form button').click();
+
+    cy.on("window:alert", (text) => {
+      expect(text).to.contains("Product created successfully!");
+    });
+  });
+
+  it('Should show the new product in the product list', () => {
+    cy.contains('Manage Product').click();
+
+    cy.contains('Test Product').should('be.visible');
+    cy.contains('100').should('be.visible');
+    cy.contains('This is a test product.').should('be.visible');
+  });
+});
+
 

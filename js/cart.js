@@ -143,7 +143,6 @@ async function checkUserLoggedIn() {
       date: new Date(),
     };
   
-    // Send the order to the server
     const response = await fetch("http://localhost:3000/orders", {
       method: "POST",
       headers: {
@@ -157,13 +156,11 @@ async function checkUserLoggedIn() {
       return;
     }
   
-    // Reset cart after successful order placement
     cart.products = [];
     await updateCartOnServer(cart);
   
     alert("Your order has been placed successfully!");
   
-    // Redirect user to the home page or order confirmation page
     window.location.href = "index.html";
   }
   
