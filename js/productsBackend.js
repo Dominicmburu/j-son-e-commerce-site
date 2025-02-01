@@ -33,7 +33,7 @@ function displayProducts(products) {
         product.description || "Short description of the product goes here."
       }</p>
       <div class="price">Ksh${product.price}</div>
-      <button onclick="addToCart(${product.id}, '${product.name}', ${
+      <button class="add-to-cart-button" onclick="addToCart(${product.id}, '${product.name}', ${
       product.price
     }, '${product.image}')">Add to Cart</button>
     `;

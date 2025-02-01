@@ -80,9 +80,9 @@ async function checkUserLoggedIn() {
             <h4>${product.name}</h4>
             <p>Price: Ksh${product.price}</p>
             <div class="quantity">
-              <button onclick="changeQuantity(${index}, -1)">-</button>
+              <button class="sub" onclick="changeQuantity(${index}, -1)">-</button>
               <span>${product.quantity}</span>
-              <button onclick="changeQuantity(${index}, 1)">+</button>
+              <button class="add" onclick="changeQuantity(${index}, 1)">+</button>
             </div>
             <button onclick="removeProduct(${index})">Remove</button>
           </div>

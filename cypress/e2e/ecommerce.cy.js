@@ -91,14 +91,14 @@ describe("Cart Functionality", () => {
       cy.reload();
   });
 
-  it("Should add multiple items to the cart and update the cart count", () => {
-    cy.intercept("GET", `${apiURL}/items`, {
-      fixture: "db.json",
-    }).as("getProducts");
+  // it("Should add multiple items to the cart and update the cart count", () => {
+  //   cy.intercept("GET", `${apiURL}/items`, {
+  //     fixture: "db.json",
+  //   }).as("getProducts");
 
-    cy.visit("/index.html");
+  //   cy.visit("/index.html");
 
-    cy.wait('@getProducts');
+  //   cy.wait('@getProducts');
 
     // cy.get(".product").eq(0).find("button").click();
     // cy.get(".product").eq(1).find("button").click();
@@ -125,23 +125,44 @@ describe("Cart Functionality", () => {
     //         cy.get("#totalPrice").should("contain", total.toFixed(2));
     //       });
     //   });
-  });
-
-  // it("Should increase quantity, decrease quantity, and remove items", () => {
-  //   cy.get(".product").eq(0).find("button").click();
-
-  //   cy.visit("http://localhost:3000/cart.html");
-
-  //   cy.get(".cart-item").eq(0).find(".quantity button").contains("+").click();
-  //   cy.get(".cart-item").eq(0).find(".quantity span").should("contain", "2");
-
-  //   cy.get(".cart-item").eq(0).find(".quantity button").contains("-").click();
-  //   cy.get(".cart-item").eq(0).find(".quantity span").should("contain", "1");
-
-  //   cy.get(".cart-item").eq(0).find("button").contains("Remove").click();
-  //   cy.get(".cart-item").should("not.exist");
   // });
 
+  it("Should add multiple items to the cart and update the cart count", () => {
+    cy.request(`${apiURL}/items`).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.have.length.greaterThan(0);
+    });
+  
+    cy.visit("/index.html");
+  
+    cy.get(".add-to-cart-button").eq(0).click();
+    cy.get(".add-to-cart-button").eq(1).click();
+  
+    cy.get(".cart").should("have.text", "Cart (1)");
+  });
+  
+
+  it("Should increase quantity, decrease quantity, and remove items", () => {
+    cy.get(".product").eq(1).find("button").click();
+
+    cy.visit("/cart.html");
+
+    cy.get(".cart-item").eq(1).find(".quantity .add").contains("+").click();
+    cy.get(".cart-item").eq(1).find(".quantity span").should("contain", "2");
+
+    cy.get(".cart-item").eq(1).find(".quantity .sub").contains("-").click();
+    cy.get(".cart-item").eq(1).find(".quantity span").should("contain", "1");
+
+    cy.get(".cart-item").eq(1).find("button").contains("Remove").click();
+    cy.get(".cart-item").should("not.exist");
+  });
+
+
+
+
+
+
+  
   // it("Should proceed to checkout with items in the cart", () => {
   //   cy.get(".product").eq(0).find("button").click();
   //   cy.get(".product").eq(1).find("button").click();
